@@ -1,0 +1,10 @@
+<div class="row" ng-controller="mainCtrl">
+  <div class="col-xs-4">
+    <a ng-repeat="screen in screens" class="btn btn-block btn-default" ng-class="{'btn-primary':screen == current}" ng-click="setScreen($index)">
+      {{screen}}
+    </a>
+  </div>
+  <div class="col-xs-8">
+    <div ng-include="getScreen()" />
+  </div>
+</div>

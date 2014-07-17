@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+  <title>Forms</title>
+
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/cerulean/bootstrap.min.css" rel="stylesheet">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script type="text/javascript">
+    angular.module("exampleApp", [])
+      .controller("defaultCtrl", function ($scope)  {
+        $scope.todos = [
+          { id: 100, place: "Store", action: "Get groceries", complete: false },
+          { id: 200, place: "Home", action: "Call Family", complete: false },         
+          { id: 300, place: "Store", action: "Buy running shoes", complete: true }
+        ]
+      });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div id="todoPanel" ng-controller="defaultCtrl">
+
+      <form name="myForm" novalidate>
+        <div class="well">
+          <label>Select an Action:</label>
+          <select ng-model="selectValue" ng-options="item.id as item.action group by item.place for item in todos">
+            <option value="">(Pick One)</option>
+          </select>
+        </div>
+      </form>
+
+      <div class="well">
+        <p>Selected: {{ selectValue || 'None' }}</p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

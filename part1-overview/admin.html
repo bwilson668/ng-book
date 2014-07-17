@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="sportsStoreAdmin">
+<head>
+  <title>Administration</title>
+
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/cerulean/bootstrap.min.css" rel="stylesheet">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular-route.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular-resource.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module("sportsStoreAdmin", ["ngRoute", "ngResource"])
+      .config(function ($routeProvider) {
+
+        $routeProvider.when("/login", {
+          templateUrl: "/part1/views/adminLogin.html"
+        });
+
+        $routeProvider.when("/main", {
+          templateUrl: "/part1/views/adminMain.html"
+        });
+
+        $routeProvider.otherwise({
+          redirectTo: "/login"
+        });
+
+      })
+  </script>
+  <script src="/part1/controllers/adminControllers.js"></script>
+  <script src="/part1/controllers/adminProductController.js"></script>
+</head>
+<body>
+  <div class="container">
+    <ng-view />
+  </div>
+</body>
+</html>
